@@ -8,7 +8,7 @@ import javax.inject.Named;
 @RequestScoped
 public class Profile {
 
-    private String name = "Paolo";
+    private String name;
 
     public String getName() {
         return name;
@@ -20,7 +20,6 @@ public class Profile {
 
     @PostConstruct
     public void postConstruct(){
-        System.out.println("Bean executado");
-        setName("Paolo");
+        setName("Paolo Zilioti");
     }
 }
