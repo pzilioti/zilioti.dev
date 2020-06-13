@@ -2,20 +2,20 @@ package dev.zilioti.web.model;
 
 import javax.annotation.PostConstruct;
 
-public class Posts {
+public class Post {
 
     private String content;
     private long id;
     private String title;
     private String link;
 
-    @PostConstruct
-    public void postConstruct(){
-        setContent("<h3> This is a test<br><br>" +
-                "<p>This is my first blog post</p><br>");
-        setLink("this-is-a-test");
-        setTitle("This is a test");
-    }
+//    @PostConstruct
+//    public void postConstruct(){
+//        setContent("<h3> This is a test<br><br>" +
+//                "<p>This is my first blog post</p><br>");
+//        setLink("this-is-a-test");
+//        setTitle("This is a test");
+//    }
 
     public String getLink() {
         return link;

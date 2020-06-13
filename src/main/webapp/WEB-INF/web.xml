@@ -11,12 +11,11 @@
     <servlet-mapping>
         <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>*.xhtml</url-pattern>
-        <url-pattern>/about</url-pattern>
     </servlet-mapping>
 
-    <welcome-file-list>
-        <welcome-file>index.xhtml</welcome-file>
-    </welcome-file-list>
+<!--    <welcome-file-list>-->
+<!--        <welcome-file>pages/index.xhtml</welcome-file>-->
+<!--    </welcome-file-list>-->
 
     <context-param>
         <param-name>primefaces.FONT_AWESOME</param-name>

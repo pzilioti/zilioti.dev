@@ -37,6 +37,38 @@
             <version>7.0</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.ocpsoft.rewrite</groupId>
+            <artifactId>rewrite-servlet</artifactId>
+            <version>3.4.4.Final</version>
+        </dependency>
+        <dependency>
+            <groupId>org.ocpsoft.rewrite</groupId>
+            <artifactId>rewrite-config-prettyfaces</artifactId>
+            <version>3.4.4.Final</version>
+        </dependency>
+
+<!--        <dependency>-->
+<!--            <groupId>org.ocpsoft.rewrite</groupId>-->
+<!--            <artifactId>rewrite-impl-servlet</artifactId>-->
+<!--            <version>3.4.4.Final</version>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>org.ocpsoft.rewrite</groupId>-->
+<!--            <artifactId>rewrite-config-prettyfaces</artifactId>-->
+<!--            <version>3.4.4.Final</version>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>org.ocpsoft.rewrite</groupId>-->
+<!--            <artifactId>rewrite-api-servlet</artifactId>-->
+<!--            <version>3.4.4.Final</version>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>org.ocpsoft.rewrite</groupId>-->
+<!--            <artifactId>rewrite-annotations-impl</artifactId>-->
+<!--            <version>3.4.2.Final</version>-->
+<!--        </dependency>-->
+
     </dependencies>
     
 </project>

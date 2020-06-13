@@ -1,0 +1,36 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <title>Paolo Zilioti</title>
+</h:head>
+<h:body>
+    <h:outputStylesheet name="css/index.css"/>
+    <h:outputLabel value="#{profile.name}"/>
+
+    <p:tabMenu activeIndex="#{param.i}">
+        <p:menuitem value="Home" outcome="pretty:index" icon="pi pi-star">
+            <f:param name="i" value="0" />
+        </p:menuitem>
+        <p:menuitem value="About" outcome="pretty:about" icon="pi pi-search">
+            <f:param name="i" value="1" />
+        </p:menuitem>
+        <p:menuitem value="Projects" outcome="pretty:index" icon="pi pi-file">
+            <f:param name="i" value="2" />
+        </p:menuitem>
+        <p:menuitem value="Blog" outcome="pretty:posts" icon="pi pi-briefcase">
+            <f:param name="i" value="3" />
+        </p:menuitem>
+
+    </p:tabMenu>
+
+
+    <ui:insert name="content">
+
+    </ui:insert>
+
+
+</h:body>
+</html>
