@@ -1,21 +1,35 @@
 package dev.zilioti.web.model;
 
-import javax.annotation.PostConstruct;
+import javax.persistence.*;
+import java.io.Serializable;
+import java.time.LocalDateTime;
 
-public class Post {
+@NamedQueries({
+        @NamedQuery(name = "getPostByLink", query = "select p from Post p where p.link = :link"),
+        @NamedQuery(name = "getAllPosts", query = "select p from Post p")
+})
+@Entity
+@Table(name = "blogPost")
+public class Post implements Serializable {
+
+    @Id
+    @Column(name = "idblogPost")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+
 
     private String content;
-    private long id;
     private String title;
     private String link;
+    private LocalDateTime date;
 
-//    @PostConstruct
-//    public void postConstruct(){
-//        setContent("<h3> This is a test<br><br>" +
-//                "<p>This is my first blog post</p><br>");
-//        setLink("this-is-a-test");
-//        setTitle("This is a test");
-//    }
+    public LocalDateTime getDate() {
+        return date;
+    }
+
+    public void setDate(LocalDateTime date) {
+        this.date = date;
+    }
 
     public String getLink() {
         return link;
