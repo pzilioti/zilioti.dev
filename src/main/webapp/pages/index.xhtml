@@ -3,7 +3,15 @@
       xmlns:ui="http://java.sun.com/jsf/facelets">
 <ui:composition template="/template/template.xhtml">
     <ui:define name="content">
-        <h1>Index</h1>
+        <div id="index-page" class="al-center">
+            <h1>Hello and welcome!</h1>
+            <div class="welcome-text">
+                <h:outputLabel value="#{indexBean.index.welcomeString}"/>
+            </div>
+            <div class="index-email">
+                <h:outputLink value="mailto:#{indexBean.about.email}">Get in touch</h:outputLink>
+            </div>
+        </div>
     </ui:define>
 </ui:composition>
 </html>

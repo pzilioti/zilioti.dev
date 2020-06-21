@@ -1,36 +1,32 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
 <h:head>
     <title>Paolo Zilioti</title>
+    <h:outputStylesheet name="css/index.css"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="#{resource['favicon/apple-touch-icon.png']}"/>
+    <link rel="icon" type="image/png" sizes="32x32" href="#{resource['favicon/favicon-32x32.png']}"/>
+    <link rel="icon" type="image/png" sizes="16x16" href="#{resource['favicon/favicon-16x16.png']}"/>
+    <link rel="manifest" href="#{resource['favicon/site.webmanifest']}"/>
 </h:head>
 <h:body>
-    <h:outputStylesheet name="css/index.css"/>
-    <h:outputLabel value="#{profile.name}"/>
+    #{indexBean.currentContext(request.requestURI)}
+    <div id="toolbar" class="header">
+        <div class="menu-header">
+            <h:outputLabel value="#{indexBean.index.name}" styleClass="menu-item name"/>
+            <h:outputLink value="/paolo" ajax="false" id="index"
+                          styleClass="menu-item #{indexBean.verifyPage('home') ? 'underlined' : ''}">Home</h:outputLink>
+            <h:outputLink value="/paolo/about" ajax="false" id="about"
+                          styleClass="menu-item #{indexBean.verifyPage('about') ? 'underlined' : ''}">About</h:outputLink>
+            <h:outputLink value="/paolo" ajax="false" id="projects"
+                          styleClass="menu-item #{indexBean.verifyPage('projects') ? 'underlined' : ''}">Projects</h:outputLink>
+            <h:outputLink value="/paolo/post" ajax="false" id="blog"
+                          styleClass="menu-item #{indexBean.verifyPage('post') ? 'underlined' : ''}">Blog</h:outputLink>
+        </div>
+    </div>
 
-    <p:tabMenu activeIndex="#{param.i}">
-        <p:menuitem value="Home" outcome="pretty:index" icon="pi pi-star">
-            <f:param name="i" value="0" />
-        </p:menuitem>
-        <p:menuitem value="About" outcome="pretty:about" icon="pi pi-search">
-            <f:param name="i" value="1" />
-        </p:menuitem>
-        <p:menuitem value="Projects" outcome="pretty:index" icon="pi pi-file">
-            <f:param name="i" value="2" />
-        </p:menuitem>
-        <p:menuitem value="Blog" outcome="pretty:posts" icon="pi pi-briefcase">
-            <f:param name="i" value="3" />
-        </p:menuitem>
-
-    </p:tabMenu>
-
-
-    <ui:insert name="content">
-
-    </ui:insert>
-
+    <ui:insert name="content"/>
 
 </h:body>
 </html>

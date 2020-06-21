@@ -1,8 +1,9 @@
 package dev.zilioti.web.model;
 
 import javax.annotation.PostConstruct;
+import java.io.Serializable;
 
-public class About {
+public class About implements Serializable {
     private String description;
     private String linkedin;
     private String email;
