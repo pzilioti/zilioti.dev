@@ -42,3 +42,15 @@ a.menu-item:hover{
     margin-left:  auto;
     margin-right: auto;
 }
+.index-email{
+    padding-top: 1rem;
+}
+a.mail-link:link{
+    color: black;
+}
+a.mail-link:visited{
+    color: black;
+}
+a.mail-link:hover{
+    color: gray;
+}
