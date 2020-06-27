@@ -2,15 +2,16 @@ package dev.zilioti.web.dao;
 
 import dev.zilioti.web.model.Post;
 
-import javax.enterprise.context.RequestScoped;
-import javax.inject.Inject;
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
+import java.time.LocalDateTime;
 import java.util.List;
 
-@RequestScoped
+@Transactional
 public class PostsDAO {
 
-    @Inject
+    @PersistenceContext(unitName = "paoloweb")
     private EntityManager entityManager;
 
     public Post getLastPost() {
@@ -18,12 +19,18 @@ public class PostsDAO {
         return lastPost;
     }
 
+    public void savePost(Post post){
+        entityManager.persist(post);
+    }
+
     public Post getPostByLink(String link){
         return (Post)entityManager.createNamedQuery("getPostByLink").setParameter("link", link).getSingleResult();
     }
 
     public List<Post> getAllPosts(){
-        return entityManager.createNamedQuery("getAllPosts").getResultList();
+        List<Post> list = entityManager.createNamedQuery("getAllPosts").getResultList();
+        list.sort((p1, p2) -> p1.compareTo(p2));
+        return list;
     }
 
 }

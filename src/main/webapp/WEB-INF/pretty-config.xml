@@ -13,6 +13,11 @@
         <view-id value="/pages/about.xhtml" />
     </url-mapping>
 
+    <url-mapping id="new">
+        <pattern value="/new" />
+        <view-id value="/pages/new.xhtml" />
+    </url-mapping>
+
     <url-mapping id="post">
         <pattern value="/post/#{link}" />
         <view-id value="/pages/posts.xhtml" />

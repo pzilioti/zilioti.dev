@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 })
 @Entity
 @Table(name = "blogPost")
-public class Post implements Serializable {
+public class Post implements Serializable, Comparable {
 
     @Id
     @Column(name = "idblogPost")
@@ -61,5 +61,12 @@ public class Post implements Serializable {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+
+    @Override
+    public int compareTo(Object o) {
+        Post p = (Post) o;
+        return date.compareTo(p.date);
     }
 }
