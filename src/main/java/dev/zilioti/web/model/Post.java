@@ -4,6 +4,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
+
 @NamedQueries({
         @NamedQuery(name = "getPostByLink", query = "select p from Post p where p.link = :link"),
         @NamedQuery(name = "getAllPosts", query = "select p from Post p")
@@ -17,8 +18,8 @@ public class Post implements Serializable, Comparable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-
-    private String content;
+    @Lob
+    private byte[] content;
     private String title;
     private String link;
     private LocalDateTime date;
@@ -39,11 +40,11 @@ public class Post implements Serializable, Comparable {
         this.link = link;
     }
 
-    public String getContent() {
+    public byte[] getContent() {
         return content;
     }
 
-    public void setContent(String content) {
+    public void setContent(byte[] content) {
         this.content = content;
     }
 
@@ -67,6 +68,6 @@ public class Post implements Serializable, Comparable {
     @Override
     public int compareTo(Object o) {
         Post p = (Post) o;
-        return date.compareTo(p.date);
+        return date.compareTo(p.date)*-1;
     }
 }

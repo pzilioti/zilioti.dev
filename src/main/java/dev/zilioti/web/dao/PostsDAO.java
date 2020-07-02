@@ -5,14 +5,15 @@ import dev.zilioti.web.model.Post;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.List;
 
 @Transactional
-public class PostsDAO {
+public class PostsDAO implements Serializable {
 
     @PersistenceContext(unitName = "paoloweb")
-    private EntityManager entityManager;
+    transient private EntityManager entityManager;
 
     public Post getLastPost() {
         Post lastPost = entityManager.find(Post.class, 1);

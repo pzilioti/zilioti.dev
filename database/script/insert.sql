@@ -10,5 +10,7 @@ values ('second-post-live', '<h3>My Second blog post<br><br><p>This is my the se
 
 commit;
 
+delete from blogPost where idblogPost = 3;
 
 select * from blogPost;
+

@@ -7,7 +7,10 @@ import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 import java.util.List;
+import java.util.Locale;
 
 @Named
 @RequestScoped
@@ -53,6 +56,15 @@ public class PostsBean {
         }
     }
 
+    public String summaryContent(byte[] content){
+        String sContent = new String(content);
+        sContent = sContent.replaceAll("\\<.*?\\>", "");
+        if(sContent.length() > 200){
+            return sContent.substring(0, 201).concat("...");
+        }
+        return sContent.concat("...");
+    }
+
     public List<Post> getAllPosts() {
         return allPosts;
     }
@@ -60,4 +72,5 @@ public class PostsBean {
     public void setAllPosts(List<Post> allPosts) {
         this.allPosts = allPosts;
     }
+
 }

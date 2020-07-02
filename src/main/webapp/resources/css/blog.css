@@ -1,0 +1,22 @@
+.blog-title{
+    font-size: 4rem;
+    margin: auto;
+}
+.internal-title{
+    font-size:2rem;
+    font-weight: bold;
+}
+.blog-date{
+    font-style: italic;
+    padding-bottom: 1rem;
+    padding-top: 0.5rem;
+    font-size: 0.9rem;
+}
+.grid-content{
+    display: grid;
+    padding: 1rem;
+}
+.repeat-item{
+    display: grid;
+    margin: 0.5rem;
+}

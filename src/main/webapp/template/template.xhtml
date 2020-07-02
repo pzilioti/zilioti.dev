@@ -15,13 +15,13 @@
     <div id="toolbar" class="header">
         <div class="menu-header">
             <h:outputLabel value="#{indexBean.index.name}" styleClass="menu-item name"/>
-            <h:outputLink value="/paolo" ajax="false" id="index"
+            <h:outputLink value="/" ajax="false" id="index"
                           styleClass="menu-item #{indexBean.verifyPage('home') ? 'underlined' : ''}">Home</h:outputLink>
-            <h:outputLink value="/paolo/about" ajax="false" id="about"
+            <h:outputLink value="/about" ajax="false" id="about"
                           styleClass="menu-item #{indexBean.verifyPage('about') ? 'underlined' : ''}">About</h:outputLink>
-            <h:outputLink value="/paolo" ajax="false" id="projects"
+            <h:outputLink value="/" ajax="false" id="projects"
                           styleClass="menu-item #{indexBean.verifyPage('projects') ? 'underlined' : ''}">Projects</h:outputLink>
-            <h:outputLink value="/paolo/post" ajax="false" id="blog"
+            <h:outputLink value="/post" ajax="false" id="blog"
                           styleClass="menu-item #{indexBean.verifyPage('post') ? 'underlined' : ''}">Blog</h:outputLink>
         </div>
     </div>

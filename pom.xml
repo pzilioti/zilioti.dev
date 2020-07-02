@@ -73,6 +73,12 @@
             <version>8.0.20</version>
         </dependency>
 
+        <dependency>
+            <groupId>com.googlecode.owasp-java-html-sanitizer</groupId>
+            <artifactId>owasp-java-html-sanitizer</artifactId>
+            <version>20200615.1</version>
+        </dependency>
+
     </dependencies>
     
 </project>

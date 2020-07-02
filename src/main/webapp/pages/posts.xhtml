@@ -12,20 +12,28 @@
     </f:metadata>
 
     <ui:define name="content">
+        <h:outputStylesheet name="css/blog.css"/>
         <div class="al-center">
-            <h:panelGroup id="singlePost" layout="block" rendered="#{postsBean.post ne null}">
+            <h:panelGroup id="singlePost" layout="block" styleClass="grid-content" rendered="#{postsBean.post ne null}">
                 <!-- Single blog post -->
-                <h:outputLabel value="#{postsBean.post.title}"/>
-                <h:outputText value="#{postsBean.post.content}" escape="false"/>
+                <h:outputLabel value="#{postsBean.post.title}" styleClass="blog-title"/>
+                <h:outputLabel value="#{postsBean.post.date}" converter="dateConverter" styleClass="blog-date"/>
+                <h:outputText value="#{postsBean.post.content}" escape="false" converter="contentConverter"/>
             </h:panelGroup>
 
 
-            <h:panelGroup id="allPosts" layout="block" rendered="#{postsBean.allPosts ne null}">
+            <h:panelGroup id="allPosts" layout="block" styleClass="grid-content"
+                          rendered="#{postsBean.allPosts ne null}">
                 <!-- All posts blog post -->
                 <h:panelGrid columns="1">
                     <ui:repeat value="#{postsBean.allPosts}" var="p">
-                        <h:outputLink value="post/#{p.link}"><h:outputText value="#{p.title}"/></h:outputLink><br/>
-                        <h:outputLabel value="#{p.date}"/><br/>
+                        <div class="repeat-item">
+                            <h:outputLink value="post/#{p.link}" styleClass="internal-link internal-title"><h:outputText
+                                    value="#{p.title}"/></h:outputLink>
+                            <h:outputLabel value="#{p.date}" converter="dateConverter" styleClass="blog-date"/>
+                            <h:outputText value="#{postsBean.summaryContent(p.content)}" />
+                            <h:outputLink value="post/#{p.link}" styleClass="internal-link">Read more</h:outputLink>
+                        </div>
                     </ui:repeat>
                 </h:panelGrid>
             </h:panelGroup>
