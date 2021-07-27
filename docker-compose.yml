@@ -1,0 +1,22 @@
+version: "3.9"
+
+services:
+    db:
+        image: portfolio/db
+        restart: always
+        container_name: portfolio-db
+        ports:
+            - "3306:3306"
+
+    wildfly:
+        image: portfolio/server
+        restart: always
+        container_name: portfolio-server
+        ports:
+            - "8080:8080"
+            - "9990:9990"
+
+networks:
+    default:
+        external: true
+        name: portfolio_network

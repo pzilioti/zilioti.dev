@@ -5,9 +5,12 @@
              version="2.2">
 
     <persistence-unit name="paoloweb" transaction-type="JTA">
-        <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <jta-data-source>jndi/paoloweb</jta-data-source>
         <class>dev.zilioti.web.model.Post</class>
+        <properties>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
+        </properties>
     </persistence-unit>
 
 </persistence>
