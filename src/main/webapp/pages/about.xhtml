@@ -5,9 +5,8 @@
       xmlns:p="http://primefaces.org/ui">
 <ui:composition template="/template/template.xhtml">
     <ui:define name="content">
-        <h:outputStylesheet name="css/about.css"/>
         <div id="about-table" class="al-center">
-            <h:graphicImage id="profilePhoto" name="images/me.jpg"/>
+            <h:graphicImage id="profilePhoto" class="img-fluid" name="images/me.png"/>
             <h:outputLabel value="#{aboutBean.info.description}"/>
             <h:outputLink value="#{aboutBean.info.linkedin}" target="_blank">
                 <i class="fa fa-fw fa-linkedin"/>
@@ -21,8 +20,6 @@
                 <i class="fa fa-fw fa-envelope-o"/>
             </h:outputLink>
         </div>
-
-
     </ui:define>
 </ui:composition>
 </html>

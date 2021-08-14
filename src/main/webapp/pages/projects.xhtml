@@ -1,0 +1,42 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<ui:composition template="/template/template.xhtml">
+    <ui:define name="content">
+        <h:outputStylesheet name="css/projects.css"/>
+        <div class="card flex align-items-start">
+            <div class="inline-block">
+                <h:form>
+                    <div class="card">
+                        <p:menu model="#{projectBean.model}"
+                                styleClass="border-none "
+                                style="#{themeBean.checked ? 'background: #0d0f12' : '' }"
+                        />
+                    </div>
+                </h:form>
+            </div>
+            <p:divider layout="vertical" styleClass="align-self-stretch"/>
+            <div class="inline-block flex-grow-1">
+                <p:card id="content" styleClass="w-auto">
+                    <f:facet name="header">
+                        <img alt="user header" />
+                    </f:facet>
+                    <f:facet name="title">
+                        #{projectBean.project.getTitle()}
+                    </f:facet>
+                    <f:facet name="subtitle">
+                        Card subtitle
+                    </f:facet>
+                    <p>#{projectBean.project.getDescription()}</p>
+                    <f:facet name="footer">
+                        <p:linkButton href="/projects" value="Github page" icon="fa fa-fw fa-github" style="margin-right:20px;"/>
+                        <p:linkButton href="/projects" value="Visit" icon="pi pi-globe" style="margin-right:20px;"/>
+                    </f:facet>
+                </p:card>
+            </div>
+        </div>
+    </ui:define>
+</ui:composition>
+</html>

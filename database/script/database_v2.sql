@@ -27,6 +27,16 @@ CREATE TABLE IF NOT EXISTS `paoloweb`.`blogPost` (
   UNIQUE INDEX `link_UNIQUE` (`link` ASC) VISIBLE)
 ENGINE = InnoDB;
 
+CREATE TABLE IF NOT EXISTS `paoloweb`.`project` (
+  `idproject` INT NOT NULL AUTO_INCREMENT,
+  `url_image` VARCHAR(1000) NULL,
+  `title` VARCHAR(100) NOT NULL,
+  `description` VARCHAR(4000) NOT NULL,
+  `github` VARCHAR(100) NULL,
+  `link` VARCHAR(100) NULL,
+  PRIMARY KEY (`idproject`))
+ENGINE = InnoDB;
+
 GRANT ALL PRIVILEGES ON paoloweb.* TO 'paolo'@'%';
 
 SET SQL_MODE=@OLD_SQL_MODE;

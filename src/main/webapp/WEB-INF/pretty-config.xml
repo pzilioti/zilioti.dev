@@ -8,24 +8,10 @@
         <view-id value="/pages/index.xhtml" />
     </url-mapping>
 
-    <url-mapping id="about">
-        <pattern value="/about" />
-        <view-id value="/pages/about.xhtml" />
-    </url-mapping>
 
-    <url-mapping id="new">
-        <pattern value="/new" />
-        <view-id value="/pages/new.xhtml" />
-    </url-mapping>
-
-    <url-mapping id="post">
-        <pattern value="/post/#{link}" />
-        <view-id value="/pages/posts.xhtml" />
-    </url-mapping>
-
-    <url-mapping id="posts">
-        <pattern value="/post" />
-        <view-id value="/pages/posts.xhtml" />
+    <url-mapping id="projects">
+        <pattern value="/projects" />
+        <view-id value="/pages/projects.xhtml" />
     </url-mapping>
 
 </pretty-config>

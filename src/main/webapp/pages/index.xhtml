@@ -1,17 +1,36 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:ui="http://java.sun.com/jsf/facelets">
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
 <ui:composition template="/template/template.xhtml">
+
     <ui:define name="content">
-        <div id="index-page" class="al-center">
-            <h1>Hello and welcome!</h1>
-            <div class="welcome-text">
-                <h:outputLabel value="#{indexBean.index.welcomeString}"/>
+        <h:outputStylesheet name="css/index.css"/>
+            <div class="grid m-2">
+                <div class="sm:col-12 lg:col-4">
+                    <h:graphicImage id="profilePhoto" class="border-solid border-circle border-primary max-w-full bg-white" name="images/me.png"/>
+                </div>
+                <div class="sm:col-12 lg:col-8 p-5">
+                    <p class="text-justify #{themeBean.checked ? 'text-dark' : '' }">
+                        #{aboutBean.info.description}
+                    </p>
+                    <div class="flex justify-content-end">
+                        <h:outputLink value="#{aboutBean.info.linkedin}" target="_blank" class="no-underline m-2">
+                            <i class="fa fa-fw fa-linkedin text-3xl"/>
+                        </h:outputLink>
+
+                        <h:outputLink value="#{aboutBean.info.github}" target="_blank" class="no-underline m-2">
+                            <i class="fa fa-fw fa-github text-3xl"/>
+                        </h:outputLink>
+
+                        <h:outputLink value="mailto:#{aboutBean.info.email}" target="_blank" class="no-underline m-2">
+                            <i class="fa fa-fw fa-envelope-o text-3xl"/>
+                        </h:outputLink>
+                    </div>
+                </div>
             </div>
-            <div class="index-email">
-                <h:outputLink styleClass="internal-link" value="mailto:#{indexBean.about.email}">Get in touch</h:outputLink>
-            </div>
-        </div>
+
     </ui:define>
 </ui:composition>
 </html>

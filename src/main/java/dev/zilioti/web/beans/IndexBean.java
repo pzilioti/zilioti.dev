@@ -17,6 +17,8 @@ public class IndexBean implements Serializable {
 
     private String currentPage;
 
+    private Integer indexPage;
+
     @Inject
     private Index index;
 
@@ -34,12 +36,10 @@ public class IndexBean implements Serializable {
     public void currentContext(String URI){
         if(URI.contains("index")){
             setCurrentPage("home");
-        }else if(URI.contains("about")){
-            setCurrentPage("about");
-        } else if(URI.contains("projects")){
+            setIndexPage(0);
+        }else if(URI.contains("projects")){
             setCurrentPage("projects");
-        }else if (URI.contains("post")){
-            setCurrentPage("post");
+            setIndexPage(1);
         }
     }
 
@@ -69,5 +69,13 @@ public class IndexBean implements Serializable {
 
     public void setAbout(About about) {
         this.about = about;
+    }
+
+    public Integer getIndexPage() {
+        return indexPage;
+    }
+
+    public void setIndexPage(Integer indexPage) {
+        this.indexPage = indexPage;
     }
 }

@@ -1,10 +1,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
 <h:head>
     <title>Paolo Zilioti</title>
-    <h:outputStylesheet name="css/index.css"/>
+    <h:outputStylesheet name="css/lib/primeflex.min.css"/>
+    <h:outputStylesheet name="css/template.css"/>
     <link rel="apple-touch-icon" sizes="180x180" href="#{resource['favicon/apple-touch-icon.png']}"/>
     <link rel="icon" type="image/png" sizes="32x32" href="#{resource['favicon/favicon-32x32.png']}"/>
     <link rel="icon" type="image/png" sizes="16x16" href="#{resource['favicon/favicon-16x16.png']}"/>
@@ -12,21 +14,44 @@
 </h:head>
 <h:body>
     #{indexBean.currentContext(request.requestURI)}
-    <div id="toolbar" class="header">
-        <div class="menu-header">
-            <h:outputLabel value="#{indexBean.index.name}" styleClass="menu-item name"/>
-            <h:outputLink value="/" ajax="false" id="index"
-                          styleClass="menu-item #{indexBean.verifyPage('home') ? 'underlined' : ''}">Home</h:outputLink>
-            <h:outputLink value="/about" ajax="false" id="about"
-                          styleClass="menu-item #{indexBean.verifyPage('about') ? 'underlined' : ''}">About</h:outputLink>
-            <h:outputLink value="/" ajax="false" id="projects"
-                          styleClass="menu-item #{indexBean.verifyPage('projects') ? 'underlined' : ''}">Projects</h:outputLink>
-            <h:outputLink value="/post" ajax="false" id="blog"
-                          styleClass="menu-item #{indexBean.verifyPage('post') ? 'underlined' : ''}">Blog</h:outputLink>
+    <div class="#{themeBean.checked ? 'container-dark' : 'container' } flex flex-column">
+        <div class="card">
+            <h:form>
+                <p:toolbar>
+                    <p:toolbarGroup name="left">
+                        <p:linkButton href="/" value="Home" styleClass="menu-item #{themeBean.checked ? 'dark' : '' }"/>
+                        <p:linkButton href="/projects" value="Projects" styleClass="menu-item #{themeBean.checked ? 'dark' : '' }"/>
+                        <p:linkButton href="https://blog.zilioti.dev/" value="Blog" styleClass="menu-item #{themeBean.checked ? 'dark' : '' }"/>
+                        <p:divider layout="vertical" style="min-height: 0"/>
+                        <p:menuButton value="Language">
+                            <p:menuitem value="English" icon="pi pi-save"/>
+                            <p:menuitem value="Português" icon="pi pi-refresh"/>
+                            <p:menuitem value="Italiano" icon="pi pi-times"/>
+                            <p:menuitem value="中文" icon="pi pi-home"/>
+                        </p:menuButton>
+                    </p:toolbarGroup>
+
+
+                    <p:toolbarGroup name="right">
+                        <div class="grid align-items-center mr-2 pt-1">
+                            <div class="col-3">
+                                <i class="#{themeBean.checked ? 'pi pi-sun' : 'pi pi-moon' }"/>
+                            </div>
+                            <div class="col-6 pt-2">
+                                <p:toggleSwitch value="#{themeBean.checked}" styleClass="align-self-end">
+                                    <p:ajax listener="#{themeBean.updateTheme()}" update="@all"/>
+                                </p:toggleSwitch>
+                            </div>
+                        </div>
+                    </p:toolbarGroup>
+                </p:toolbar>
+            </h:form>
+        </div>
+        <ui:insert name="content"/>
+
+        <div class="flex justify-content-start h-3rem #{themeBean.checked ? 'footer-dark' : 'footer' }">
+            <p class="text-sm color-text pl-2">Developed by Paolo</p>
         </div>
     </div>
-
-    <ui:insert name="content"/>
-
 </h:body>
 </html>
