@@ -37,8 +37,22 @@ CREATE TABLE IF NOT EXISTS `paoloweb`.`project` (
   PRIMARY KEY (`idproject`))
 ENGINE = InnoDB;
 
+-- -----------------------------------------------------
+-- Table `paoloweb`.`content`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `paoloweb`.`content` (
+  `idcontent` INT NOT NULL AUTO_INCREMENT,
+  `locale` VARCHAR(45) NOT NULL,
+  `key` VARCHAR(100) NOT NULL,
+  `value` VARCHAR(4000) NOT NULL,
+  PRIMARY KEY (`idcontent`))
+ENGINE = InnoDB;
+
 GRANT ALL PRIVILEGES ON paoloweb.* TO 'paolo'@'%';
+
+ALTER DATABASE paoloweb CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+

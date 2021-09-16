@@ -3,6 +3,7 @@ package dev.zilioti.web.beans;
 import dev.zilioti.web.dao.PostsDAO;
 import dev.zilioti.web.model.Post;
 
+import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -19,58 +20,20 @@ public class PostsBean {
     @Inject
     private PostsDAO dao;
 
-    private Post post;
-    private List<Post> allPosts;
-    private String link;
+    private Post latestPost;
 
-    public PostsDAO getDao() {
-        return dao;
+    public Post getLatestPost() {
+        return latestPost;
     }
 
-    public void setDao(PostsDAO dao) {
-        this.dao = dao;
+    public void setLatestPost(Post latestPost) {
+        this.latestPost = latestPost;
     }
 
-    public String getLink() {
-        return link;
-    }
-
-    public void setLink(String link) {
-        this.link = link;
-    }
-
-    public Post getPost() {
-        return post;
-    }
-
-    public void setPost(Post post) {
-        this.post = post;
-    }
-
-    public void validateLink(){
-        if(link != null){
-            setPost(dao.getPostByLink(link));
-        }
-        if(post == null){
-            setAllPosts(dao.getAllPosts());
+    @PostConstruct
+    public void init() {
+        if(latestPost == null){
+            latestPost = dao.getLastestPost();
         }
     }
-
-    public String summaryContent(byte[] content){
-        String sContent = new String(content);
-        sContent = sContent.replaceAll("\\<.*?\\>", "");
-        if(sContent.length() > 200){
-            return sContent.substring(0, 201).concat("...");
-        }
-        return sContent.concat("...");
-    }
-
-    public List<Post> getAllPosts() {
-        return allPosts;
-    }
-
-    public void setAllPosts(List<Post> allPosts) {
-        this.allPosts = allPosts;
-    }
-
 }

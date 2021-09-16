@@ -14,4 +14,10 @@
         <view-id value="/pages/projects.xhtml" />
     </url-mapping>
 
+    <url-mapping id="projects">
+        <pattern value="/projects/#{projectBean.titleProject}" />
+        <view-id value="/pages/projects.xhtml" />
+    </url-mapping>
+
+
 </pretty-config>

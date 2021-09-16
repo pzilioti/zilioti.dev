@@ -13,7 +13,7 @@
                 </div>
                 <div class="sm:col-12 lg:col-8 p-5">
                     <p class="text-justify #{themeBean.checked ? 'text-dark' : '' }">
-                        #{aboutBean.info.description}
+                        #{contentBean.getContent("self_introduction")}
                     </p>
                     <div class="flex justify-content-end">
                         <h:outputLink value="#{aboutBean.info.linkedin}" target="_blank" class="no-underline m-2">
@@ -27,6 +27,21 @@
                         <h:outputLink value="mailto:#{aboutBean.info.email}" target="_blank" class="no-underline m-2">
                             <i class="fa fa-fw fa-envelope-o text-3xl"/>
                         </h:outputLink>
+                    </div>
+
+                    <div>
+                        <p class="text-justify #{themeBean.checked ? 'text-dark' : '' }">
+                            #{contentBean.getContent("latest_blog")}
+                        </p>
+                        <p class="inline-block text-lg text-justify #{themeBean.checked ? 'text-dark' : '' }">
+                            #{postsBean.latestPost.publishedFormatted()}:
+                        </p>
+                        <h:outputLink value="#{postsBean.latestPost.url}"  class="no-underline m-2">
+                            <p class="inline-block text-lg text-justify #{themeBean.checked ? 'text-dark' : '' }">
+                                #{postsBean.latestPost.title}
+                            </p>
+                        </h:outputLink>
+
                     </div>
                 </div>
             </div>

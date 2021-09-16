@@ -6,8 +6,8 @@
 <ui:composition template="/template/template.xhtml">
     <ui:define name="content">
         <h:outputStylesheet name="css/projects.css"/>
-        <div class="card flex align-items-start">
-            <div class="inline-block">
+        <div class="grid m-2">
+            <div class="sm:col-12 md:col-4 lg:col-2">
                 <h:form>
                     <div class="card">
                         <p:menu model="#{projectBean.model}"
@@ -17,22 +17,19 @@
                     </div>
                 </h:form>
             </div>
-            <p:divider layout="vertical" styleClass="align-self-stretch"/>
-            <div class="inline-block flex-grow-1">
+<!--            <p:divider layout="vertical" styleClass="align-self-stretch"/>-->
+            <div class="sm:col-12 md:col-8 m-2">
                 <p:card id="content" styleClass="w-auto">
                     <f:facet name="header">
-                        <img alt="user header" />
+                        <h:graphicImage rendered="#{projectBean.haveImg()}" id="projectPhoto"  name="images/#{projectBean.project.urlImage}"/>
                     </f:facet>
                     <f:facet name="title">
                         #{projectBean.project.getTitle()}
                     </f:facet>
-                    <f:facet name="subtitle">
-                        Card subtitle
-                    </f:facet>
-                    <p>#{projectBean.project.getDescription()}</p>
+                    <p>#{projectBean.haveProject() ? contentBean.getContent(projectBean.project.getDescription()) : contentBean.getContent("welcome_project")}</p>
                     <f:facet name="footer">
-                        <p:linkButton href="/projects" value="Github page" icon="fa fa-fw fa-github" style="margin-right:20px;"/>
-                        <p:linkButton href="/projects" value="Visit" icon="pi pi-globe" style="margin-right:20px;"/>
+                        <p:linkButton rendered="#{projectBean.haveGithub()}" href="#{projectBean.project.github}" value="#{contentBean.getContent('github')}" icon="fa fa-fw fa-github" style="margin-right:20px;"/>
+                        <p:linkButton rendered="#{projectBean.haveLink()}" href="#{projectBean.project.link}" value="#{contentBean.getContent('visit')}" icon="pi pi-globe" style="margin-right:20px;"/>
                     </f:facet>
                 </p:card>
             </div>
