@@ -27,9 +27,8 @@ public class PostsDAO {
 
     private Logger logger = Logger.getLogger(getClass().getName());
 
-    // The BlogId for the Blogger Buzz blog
-    String BLOG_ID = "1482420237361379345";
-    String API_KEY = "AIzaSyD2rlkLNTokhdxgoEJ8AHe4enxggX-X3Lo";
+    String BLOG_ID = "";
+    String API_KEY = "";
 
     public Post getLastestPost(){
         String response = doRequest();
