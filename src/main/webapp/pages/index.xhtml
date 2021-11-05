@@ -12,6 +12,9 @@
                     <h:graphicImage id="profilePhoto" class="border-solid border-circle border-primary max-w-full bg-white" name="images/me.png"/>
                 </div>
                 <div class="sm:col-12 lg:col-8 p-5">
+                    <p class="text-justify text-7xl pr-7 #{themeBean.checked ? 'text-dark' : '' }">
+                        #{contentBean.getContent("headline")}
+                    </p>
                     <p class="text-justify text-xl pr-7 #{themeBean.checked ? 'text-dark' : '' }">
                         #{contentBean.getContent("self_introduction")}
                     </p>

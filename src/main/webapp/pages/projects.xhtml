@@ -6,7 +6,7 @@
 <ui:composition template="/template/template.xhtml">
     <ui:define name="content">
         <h:outputStylesheet name="css/projects.css"/>
-        <div class="grid m-2">
+        <div class="#{themeBean.checked ? 'container-dark' : 'container' } grid">
             <div class="sm:col-12 md:col-4 lg:col-2">
                 <h:form>
                     <div class="card">

@@ -10,14 +10,15 @@ body {
     color: #6c757d
 }
 
-
-.container-dark{
-    background-color: #0d0f12;
+.full-height{
     height: 100vh;
 }
 
+.container-dark{
+    background-color: #0d0f12;
+}
+
 .container{
-    height: 100vh;
 }
 
 .footer{
