@@ -1,3 +1,6 @@
 .idea/
 target/
 paoloweb.iml
+.classpath
+.project
+.settings/

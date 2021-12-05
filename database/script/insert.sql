@@ -6,6 +6,7 @@ INSERT INTO `project` (`url_image`, `title`, `description`, `github`, `link`) VA
 INSERT INTO `project` (`url_image`, `title`, `description`, `github`, `link`) VALUES (NULL,'Homeserver','homeserver','https://github.com/pzilioti/homeserver-wol',NULL);
 INSERT INTO `project` (`url_image`, `title`, `description`, `github`, `link`) VALUES ('mobile.png','Mobile Project','mobile','https://github.com/pzilioti/mobile-proj-final',NULL);
 INSERT INTO `project` (`url_image`, `title`, `description`, `github`, `link`) VALUES ('endochecker.png','Endochecker','endochecker',NULL,'https://play.google.com/store/apps/details?id=app.kori.bruno_cesar_fotos');
+INSERT INTO `project` (`url_image`, `title`, `description`, `github`, `link`) VALUES ('rate_visualization.png','Rates Visualization','rate_visualization','https://github.com/pzilioti/visualizacao-cotacao','https://www.zilioti.dev/demo_visualiza/view/');
 
 INSERT INTO `content` (`locale`, `key`, `value`) VALUES ('en','title','Paolo Zilioti');
 INSERT INTO `content` (`locale`, `key`, `value`) VALUES ('en','home','Home');
@@ -43,3 +44,6 @@ INSERT INTO `content` (`locale`, `key`, `value`) VALUES ('en','mobile','Final pr
 INSERT INTO `content` (`locale`, `key`, `value`) VALUES ('pt','mobile','Projeto final do curso de desenvolvimento mobile na universidade. App foi feito em react native com expo');
 INSERT INTO `content` (`locale`, `key`, `value`) VALUES ('en','endochecker','Freelance project. App used to compare pictures and display medical information of a doctor''s patients. Technology used is react native with expo');
 INSERT INTO `content` (`locale`, `key`, `value`) VALUES ('pt','endochecker','Projeto freelance. Aplicativo usado para comparar fotos e exibir informações médicas de pacientes de um médico. Tecnologia usada é react native com expo');
+
+INSERT INTO `content` (`locale`, `key`, `value`) VALUES ('en','rate_visualization','This is a simple python project using the django framework. It fetches currency rates from an API and displays the information in a chart.');
+INSERT INTO `content` (`locale`, `key`, `value`) VALUES ('pt','rate_visualization','Esse é um projeto simples de python com o framework django. Ele busca informações de cotações de uma API e as mostra em um gráfico');
