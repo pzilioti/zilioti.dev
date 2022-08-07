@@ -1,0 +1,27 @@
+##################################################################################################
+# Backend
+##################################################################################################
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ziliotidev
+  labels:
+    app: ziliotidev
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: ziliotidev
+  template:
+    metadata:
+      labels:
+        app: ziliotidev
+    spec:
+      containers:
+      - image: us-central1-docker.pkg.dev/kori-ro/registry/ziliotidev:latest
+        name: ziliotidev
+        ports:
+        - containerPort: 8080
+        imagePullPolicy: Always
+      hostname: ziliotidev
+      restartPolicy: Always
